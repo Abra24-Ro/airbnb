@@ -1,0 +1,50 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.header {
+  background-image: url(../img/header.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 3rem 0 20rem;
+  position: relative;
+
+ 
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4); // oscurece un poco el fondo
+    z-index: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__busqueda {
+    margin-top: 5rem;
+    text-align: center;
+
+    @include m.tablet {
+      margin-top: 25rem;
+    }
+  }
+
+  &__busqueda-boton {
+    @include m.boton(v.$blanco, v.$primario);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: .8;
+    }
+
+  }
+
+  &__busqueda-label{
+    color: v.$grisClaro;
+    font-weight: bold;
+  }
+}

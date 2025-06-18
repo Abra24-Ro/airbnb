@@ -1,0 +1,108 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.footer {
+  background-color: lighten(v.$grisClaro, 5%);
+  border-top: 1px solid lighten(v.$gris, 40%);
+  padding: 3rem;
+
+  &__grid {
+    display: grid;
+    gap: 4rem; // Más espacio entre widgets
+
+    @include m.tablet {
+      @include m.grid(2, 4rem);
+    }
+
+    @include m.desktop {
+      @include m.grid(4, 4rem);
+    }
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: v.$negro;
+    margin-bottom: 2rem;
+  }
+
+  &__enlace {
+    display: block;
+    color: v.$gris;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken(v.$gris, 20%);
+      text-decoration: underline;
+    }
+  }
+
+  &__barra {
+    padding-top: 4rem;
+    margin-top: 6rem;
+    border-top: 1px solid lighten(v.$gris, 40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  &__barranav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+    gap: 1.5rem;
+
+    @include m.tablet {
+      flex-direction: column;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.4rem;
+      color: v.$gris;
+    }
+  }
+
+  &__enlace--barra {
+    font-size: 1.4rem;
+    color: v.$gris;
+
+    &::before {
+      content: "-";
+      margin-right: 0.5rem;
+    }
+
+    &:hover {
+      color: darken(v.$gris, 20%);
+    }
+  }
+
+  &__redes {
+    display: flex;
+    gap: 2.5rem;
+  }
+  &__icono {
+    width: 3rem;
+    height: 3rem;
+    display: inline-block;
+
+    img {
+      width: 10rem;
+      margin: 0;
+    }
+
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__icono--nombre{
+    color: v.$primario;
+  }
+}

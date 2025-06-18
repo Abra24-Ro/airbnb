@@ -1,0 +1,47 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.experiencias {
+  &__listado {
+    display: grid;
+    grid-template-columns: repeat(3, 30rem);
+    column-gap: 2rem;
+    @include m.scrollHorinzontal;
+
+    @include m.tablet {
+      @include m.grid(3, 2rem);
+    }
+  }
+}
+
+.experiencia {
+  background-color: v.$blanco;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+  }
+
+  &__imagen {
+    width: 100%;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  &__titulo {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: v.$negro;
+  }
+
+  &__descripcion {
+    font-size: 1.6rem;
+    opacity: 0.8;
+  }
+}
