@@ -5,8 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "gulp": "gulp"
-  },
+  "dev": "gulp dev",
+  "build": "gulp build"
+},
   "author": "Juan De la torre @codigoconjuan",
   "license": "ISC",
   "devDependencies": {
